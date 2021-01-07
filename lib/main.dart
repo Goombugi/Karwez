@@ -23,28 +23,48 @@ class _HomeState extends State<Home> {
         elevation: 0.0,
         backgroundColor: Colors.amberAccent,
 
-        title: Text('Karwez',
+        title: !isSearching ? Text('Karwez',
           style: TextStyle(
             fontFamily: 'Jacques-font',
             fontSize: 35.0,
             color: Colors.black,
           ),
-        ),
+        ): TextField(
+         decoration: InputDecoration(
+          icon: Icon(Icons.search),
+          
+         hintText: 'اكتب اسم المنتج'
+         ),),
         centerTitle: true,
+        actions: [
+         isSearching ? IconButton(
+            icon: Icon(Icons.cancel),
+            color: Colors.black,
+            iconSize: 35.0,
+            onPressed: () {
+            setState((){
+            this.isSearching = false; 
+            });
+            },
+          ):
+         IconButton(
+            icon: Icon(Icons.search),
+            color: Colors.black,
+            iconSize: 35.0,
+            onPressed: () {
+            setState((){
+            this.isSearching = true; 
+            });
+            },
+          ),
+        ],
         leading: IconButton(
           icon: Icon(Icons.menu),
           color: Colors.black,
           iconSize: 35.0,
           onPressed: () {},
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            color: Colors.black,
-            iconSize: 35.0,
-            onPressed: () {},
-          ),
-        ],
+       
       ),
 
       body: ListView(
