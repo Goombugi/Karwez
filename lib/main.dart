@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
                   height: 142,
                   width: MediaQuery.of(context).size.width,
                   child: Image.asset(
-                    "assets/images/ten_news.png",
+                    "assets/K-Black.jpg",
                   )),
               decoration: BoxDecoration(
                 color: Colors.transparent,
@@ -40,9 +40,7 @@ class _HomeState extends State<Home> {
             ),
             GestureDetector(
               onTap: () {
-                setState(() {
 
-                });
                 Navigator.of(context).pop();
               },
               child: Text(
@@ -103,14 +101,14 @@ class _HomeState extends State<Home> {
                   child: Container(
                     height: 65,
                     width: MediaQuery.of(context).size.width,
-                    color: Colors.black,
+                    color: Colors.amber,
                     child: Center(
                       child: Text(
-                        'v1.0.1',
+                        'Design by: Cliff Levai',
                         style: TextStyle(
-                          fontFamily: 'Avenir',
-                          fontSize: 20,
-                          color: const Color(0xffffffff),
+                          fontFamily: 'Jacques-font',
+                          fontSize: 14,
+                          color:  Colors.black,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -162,15 +160,16 @@ class _HomeState extends State<Home> {
             },
           ),
         ],
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          color: Colors.black,
-          iconSize: 35.0,
-          // to open the drawer
-          onPressed: () => Scaffold.of(context).openDrawer(),
+        leading: Builder(
+          builder: (context) => IconButton(
+              icon: Icon(Icons.menu),
+            color: Colors.black,
+            iconSize: 35.0,
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
         ),
-       
-      ),
+    ),
+
 
 
       body: ListView(
