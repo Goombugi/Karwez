@@ -23,28 +23,48 @@ class _HomeState extends State<Home> {
         elevation: 0.0,
         backgroundColor: Colors.amberAccent,
 
-        title: Text('Karwez',
+        title: !isSearching ? Text('Karwez',
           style: TextStyle(
             fontFamily: 'Jacques-font',
             fontSize: 35.0,
             color: Colors.black,
           ),
-        ),
+        ): TextField(
+         decoration: InputDecoration(
+          icon: Icon(Icons.search),
+          
+         hintText: 'اكتب اسم المنتج'
+         ),),
         centerTitle: true,
+        actions: [
+         isSearching ? IconButton(
+            icon: Icon(Icons.cancel),
+            color: Colors.black,
+            iconSize: 35.0,
+            onPressed: () {
+            setState((){
+            this.isSearching = false; 
+            });
+            },
+          ):
+         IconButton(
+            icon: Icon(Icons.search),
+            color: Colors.black,
+            iconSize: 35.0,
+            onPressed: () {
+            setState((){
+            this.isSearching = true; 
+            });
+            },
+          ),
+        ],
         leading: IconButton(
           icon: Icon(Icons.menu),
           color: Colors.black,
           iconSize: 35.0,
           onPressed: () {},
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            color: Colors.black,
-            iconSize: 35.0,
-            onPressed: () {},
-          ),
-        ],
+       
       ),
 
       body: ListView(
@@ -71,151 +91,9 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          SizedBox(height: 15.0),
-          Container(
-            padding: EdgeInsets.all(10.0),
-            height: 250.0,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    Stack(
-                      children: [
-                        Container(
-                          height: 230.0,
-                          width: MediaQuery
-                              .of(context)
-                              .size
-                              .width - MediaQuery
-                              .of(context)
-                              .size
-                              .width / 3,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5.0),
-                            image: DecorationImage(
-                              image: AssetImage('assets/K-Black1.jpg'),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                            left: 15.0,
-                            top: 130.0,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Comming Soon!',
-                                  style: TextStyle(
-                                      color: Colors.amber,
-                                      fontFamily: 'Jacques-font',
-                                      fontSize: 30.0,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text('!داخل ولاية الخرطوم...',
-                                  style: TextStyle(
-                                    color: Colors.amber,
-                                    fontFamily: 'Jacques-font',
-                                    fontSize: 20.0,
-                                  ),
 
-                                ),
-                              ],
-                            )
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                SizedBox(width: 5.0),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Material(
-                        borderRadius: BorderRadius.circular(7.0),
-                        elevation: 2.0,
-                        child: Container(
-                          height: 60.0,
-                          width: 60.0,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(7.0)
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Icon(Icons.folder_open_sharp,
-                                  color: Colors.amber),
-                              Text(
-                                'اشتراك',
-                                style: TextStyle(
-                                    fontFamily: 'Jacques-font',
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.bold),
-                              )
 
-                            ],
-                          ),
 
-                        )
-                    ),
-                    Material(
-                      borderRadius: BorderRadius.circular(7.0),
-                      elevation: 2.0,
-                      child: Container(
-                        height: 60.0,
-                        width: 60.0,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(7.0)
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Icon(Icons.chat_bubble,
-                                color: Colors.amber.withOpacity(0.5)),
-                            Text(
-                              'شكاوي',
-                              style: TextStyle(
-                                  fontFamily: 'Jacques-font',
-                                  fontSize: 15.0,
-                                  fontWeight: FontWeight.bold),
-                            ),
-
-                          ],
-                        ),
-
-                      ),
-                    ),
-
-                    Material(
-                      borderRadius: BorderRadius.circular(7.0),
-                      elevation: 2.0,
-                      child: Container(
-                        height: 60.0,
-                        width: 60.0,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(7.0)
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Icon(Icons.note, color: Colors.amber),
-                            Text(
-                              'احجز',
-                              style: TextStyle(
-                                  fontFamily: 'Jacques-font',
-                                  fontSize: 15.0,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
           SizedBox(height: 10.0),
           // Women dresses
          Container(
