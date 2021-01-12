@@ -182,16 +182,17 @@ class _HomeState extends State<Home> {
               scrollDirection: Axis.horizontal,
               padding: EdgeInsets.all(10.0),
               children: [
+                listItem('assets/K-Wight1.jpg', 'الصفحة الرئسية', true, '/'),
                 SizedBox(width: 5.0),
-                listItem('assets/smartphones.jpg', 'هواتف', true),
+                listItem('assets/smartphones.jpg', 'هواتف', true, '/phonesShop'),
                 SizedBox(width: 5.0),
-                listItem('assets/accessories.jpg', 'اكسيسوارات', true),
+                listItem('assets/accessories.jpg', 'اكسيسوارات', true, null),
                 SizedBox(width: 5.0),
-                listItem('assets/md.jpg', ' ملبوسات رجالية', true),
+                listItem('assets/md.jpg', ' ملبوسات رجالية', true,'/menDresses'),
                 SizedBox(width: 5.0),
-                listItem('assets/wd.jpg', 'ملبوسات نسائية ', true),
+                listItem('assets/wd.jpg', 'ملبوسات نسائية ', true,'/womenDresses'),
                 SizedBox(width: 5.0),
-                listItem('assets/drugs.jpg', 'ادوية', true),
+                listItem('assets/drugs.jpg', 'ادوية', true,'/pharmacies'),
 
               ],
             ),
@@ -330,6 +331,7 @@ class _HomeState extends State<Home> {
         InkWell(
           onTap: (){
             //selectShop(name);
+
           },
           child: Container(
             //height: 50.0,
@@ -346,7 +348,7 @@ class _HomeState extends State<Home> {
 
 
 // list of my item shows
-  listItem(String imgPath, String name, bool available) {
+  listItem(String imgPath, String name, bool available,String toPage) {
     return Column(
       children: [
         Container(
@@ -363,7 +365,9 @@ class _HomeState extends State<Home> {
           child: IconButton(
             icon: Icon(Icons.add),
             color: Colors.white,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, toPage);
+            },
           ),
 
         ),
