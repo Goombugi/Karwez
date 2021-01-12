@@ -166,7 +166,8 @@ class _HomeState extends State<Home> {
           icon: Icon(Icons.menu),
           color: Colors.black,
           iconSize: 35.0,
-          onPressed: () {},
+          // to open the drawer
+          onPressed: () => Scaffold.of(context).openDrawer(),
         ),
        
       ),
