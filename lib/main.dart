@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
                 Navigator.of(context).pop();
               },
               child: Text(
-                'Profile',
+                'تسجيل حساب',
                 style: TextStyle(
                   fontFamily: 'Avenir',
                   fontSize: 24,
@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
             GestureDetector(
               onTap: () {},
               child: Text(
-                'Settings',
+                'الاقسام',
                 style: TextStyle(
                   fontFamily: 'Avenir',
                   fontSize: 24,
@@ -72,7 +72,7 @@ class _HomeState extends State<Home> {
               height: 45,
             ),
             Text(
-              'About',
+              'عن التطبيق',
               style: TextStyle(
                 fontFamily: 'Avenir',
                 fontSize: 24,
@@ -84,7 +84,7 @@ class _HomeState extends State<Home> {
               height: 45,
             ),
             Text(
-              'Log Out',
+              'تسجيل خروج',
               style: TextStyle(
                 fontFamily: 'Avenir',
                 fontSize: 24,
